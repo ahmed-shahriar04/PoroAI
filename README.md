@@ -285,7 +285,7 @@ Major: **Software Development**
 
 ## 📜 License
 
-This project is licensed under the **MIT License**.
+This project is submitted for hackathon judging and portfolio demonstration. All rights reserved by Shahriar Ahmed Riaz.
 
 ---
 
