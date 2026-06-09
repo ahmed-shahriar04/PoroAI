@@ -1,0 +1,31 @@
+﻿{
+    "name":  "poro-mentor",
+    "version":  "1.0.0",
+    "description":  "AI-powered student study workspace with mentor chat, PDF/image understanding, resume builder, resource discovery, and image generation.",
+    "main":  "server.js",
+    "type":  "module",
+    "scripts":  {
+                    "dev":  "nodemon server.js",
+                    "start":  "node server.js"
+                },
+    "keywords":  [
+                     "ai",
+                     "student",
+                     "study-agent",
+                     "openai",
+                     "hackathon"
+                 ],
+    "author":  "Poro AI Team",
+    "license":  "MIT",
+    "dependencies":  {
+                         "cors":  "latest",
+                         "dotenv":  "latest",
+                         "express":  "latest",
+                         "multer":  "latest",
+                         "openai":  "latest",
+                         "pdf-parse":  "^2.4.5"
+                     },
+    "devDependencies":  {
+                            "nodemon":  "latest"
+                        }
+}

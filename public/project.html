@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Documentation - Poro Mentor</title>
+  <link rel="icon" type="image/png" href="assets/img/poroai_nobg.png">
+  <link rel="shortcut icon" type="image/png" href="assets/img/poroai_nobg.png">
+  <link rel="apple-touch-icon" href="assets/img/poroai_nobg.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="about-page-body">
+  <header class="about-nav">
+    <a class="home-brand dark-brand" href="index.html">
+      <img src="assets/img/poroai_nobg.png" alt="Poro Mentor">
+      <span>Poro Mentor</span>
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="mentor.html">Mentor</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+      <a class="active" href="project.html">Project</a>
+    </nav>
+  </header>
+
+  <main class="project-doc-shell">
+    <section class="project-doc-hero" data-aos="fade-up">
+      <div>
+        <span class="section-kicker">Hackathon Project</span>
+        <h1>Poro Mentor</h1>
+        <p>
+          An AI-powered student workspace that combines general chat, study help,
+          PDF/image understanding, resume building, coding help, career guidance,
+          productivity planning, learning resources, and image generation.
+        </p>
+
+        <div class="project-doc-actions">
+          <a class="yellow-btn" href="mentor.html">
+            Try Poro Mentor
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a class="ghost-dark-btn" href="resume.html">
+            Open Resume Builder
+            <i class="fa-solid fa-file-lines"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-doc-badge">
+        <img src="assets/img/poroai_nobg.png" alt="Poro Mentor">
+        <strong>Built with OpenAI</strong>
+        <span>Student-first AI assistant</span>
+      </div>
+    </section>
+
+    <section class="project-doc-grid">
+      <article data-aos="fade-up">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h2>Problem</h2>
+        <p>
+          Students often need different tools for studying, summarizing notes,
+          reviewing resumes, finding resources, planning careers, solving coding problems,
+          and creating visual assets. Switching between many apps wastes time and creates friction.
+        </p>
+      </article>
+
+      <article data-aos="fade-up" data-aos-delay="80">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h2>Solution</h2>
+        <p>
+          Poro Mentor brings these workflows into one clean AI workspace.
+          Students can chat naturally, attach PDFs/images, generate study notes,
+          create resumes, review career plans, get coding help, and generate images from prompts.
+        </p>
+      </article>
+
+      <article data-aos="fade-up" data-aos-delay="160">
+        <i class="fa-solid fa-users"></i>
+        <h2>Target Users</h2>
+        <p>
+          Students from school, college, and university who need a simple AI companion
+          for learning, productivity, career preparation, and academic support.
+        </p>
+      </article>
+    </section>
+
+    <section class="project-section" data-aos="fade-up">
+      <div class="doc-section-head">
+        <span class="section-kicker">Core Features</span>
+        <h2>What Poro Mentor can do</h2>
+      </div>
+
+      <div class="project-feature-list">
+        <div><i class="fa-solid fa-comments"></i><span>Default Chat with general GPT-style assistant behavior</span></div>
+        <div><i class="fa-solid fa-book-open"></i><span>Study Helper with explanations, practice questions, and flashcards</span></div>
+        <div><i class="fa-solid fa-file-pdf"></i><span>Multiple PDF and image attachment analysis with user instructions</span></div>
+        <div><i class="fa-solid fa-file-circle-check"></i><span>Resume Builder with templates, live preview, AI review, and PDF export</span></div>
+        <div><i class="fa-solid fa-code"></i><span>Coding Helper for concepts, examples, bugs, and documentation links</span></div>
+        <div><i class="fa-solid fa-briefcase"></i><span>Career Guide with roadmaps, skills, projects, and learning plans</span></div>
+        <div><i class="fa-solid fa-calendar-check"></i><span>Productivity Planner for study routines and exam preparation</span></div>
+        <div><i class="fa-solid fa-image"></i><span>AI image generation directly inside the mentor chat box</span></div>
+        <div><i class="fa-solid fa-link"></i><span>Valid resource links for videos, books, documents, websites, docs, and courses</span></div>
+        <div><i class="fa-solid fa-clock-rotate-left"></i><span>Local chat history, single chat delete, edit prompt, retry response, and copy answer</span></div>
+      </div>
+    </section>
+
+    <section class="project-section two-column-doc" data-aos="fade-up">
+      <div class="doc-card">
+        <span class="section-kicker">OpenAI Usage</span>
+        <h2>AI Workflows</h2>
+        <ul>
+          <li><i class="fa-brands fa-openai"></i> Responses API for chat and agent answers</li>
+          <li><i class="fa-brands fa-openai"></i> GPT model dropdown loaded from API-supported models</li>
+          <li><i class="fa-brands fa-openai"></i> Multimodal understanding for uploaded images</li>
+          <li><i class="fa-brands fa-openai"></i> PDF summarization after text extraction</li>
+          <li><i class="fa-brands fa-openai"></i> Resume review and improvement suggestions</li>
+          <li><i class="fa-brands fa-openai"></i> Image generation using prompt-based image endpoint</li>
+        </ul>
+      </div>
+
+      <div class="doc-card">
+        <span class="section-kicker">Built With</span>
+        <h2>Tech Stack</h2>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> HTML, CSS, JavaScript</li>
+          <li><i class="fa-solid fa-check"></i> Node.js and Express</li>
+          <li><i class="fa-solid fa-check"></i> OpenAI JavaScript SDK</li>
+          <li><i class="fa-solid fa-check"></i> Multer for file uploads</li>
+          <li><i class="fa-solid fa-check"></i> PDF parsing workflow</li>
+          <li><i class="fa-solid fa-check"></i> LocalStorage chat history</li>
+          <li><i class="fa-solid fa-check"></i> Font Awesome, Google Fonts, AOS animations</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section" data-aos="fade-up">
+      <div class="doc-section-head">
+        <span class="section-kicker">API Endpoints</span>
+        <h2>Backend endpoint map</h2>
+        <p>These are the main backend routes used by the project.</p>
+      </div>
+
+      <div class="endpoint-table">
+        <div><strong>GET</strong><code>/api/health</code><span>Checks server health.</span></div>
+        <div><strong>GET</strong><code>/api/models</code><span>Loads GPT models available to the API key.</span></div>
+        <div><strong>POST</strong><code>/api/agent</code><span>Main AI chat and agent endpoint.</span></div>
+        <div><strong>POST</strong><code>/api/agent-files</code><span>Handles multiple PDFs/images with user prompt.</span></div>
+        <div><strong>POST</strong><code>/api/pdf</code><span>Single PDF summarization endpoint.</span></div>
+        <div><strong>POST</strong><code>/api/image</code><span>Single image understanding endpoint.</span></div>
+        <div><strong>POST</strong><code>/api/generate-image</code><span>Generates images from user prompts.</span></div>
+      </div>
+    </section>
+
+    <section class="project-section" data-aos="fade-up">
+      <div class="doc-section-head">
+        <span class="section-kicker">Future Scope</span>
+        <h2>What can be added next</h2>
+      </div>
+
+      <div class="future-grid">
+        <article>
+          <i class="fa-solid fa-database"></i>
+          <h3>Cloud History</h3>
+          <p>User accounts and cloud-based chat/resume storage.</p>
+        </article>
+
+        <article>
+          <i class="fa-solid fa-video"></i>
+          <h3>Real Video API</h3>
+          <p>Official YouTube API integration for exact thumbnails and titles.</p>
+        </article>
+
+        <article>
+          <i class="fa-solid fa-school"></i>
+          <h3>Campus System</h3>
+          <p>University-specific resources, notices, course plans, and club support.</p>
+        </article>
+
+        <article>
+          <i class="fa-solid fa-mobile-screen"></i>
+          <h3>Mobile App</h3>
+          <p>A mobile-first experience for students on the go.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="project-section developer-final-card" data-aos="zoom-in">
+      <div>
+        <span class="section-kicker">Developer</span>
+        <h2>Developed by Shahriar Ahmed Riaz</h2>
+        <p>
+          Student at United International University, majoring in Software Development.
+          Portfolio:
+          <a href="https://shahriarahmedriaz.netlify.app/" target="_blank" rel="noopener noreferrer">
+            shahriarahmedriaz.netlify.app
+          </a>
+        </p>
+      </div>
+
+      <a class="yellow-btn" href="https://shahriarahmedriaz.netlify.app/" target="_blank" rel="noopener noreferrer">
+        Visit Portfolio
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="common.js"></script>
+</body>
+</html>

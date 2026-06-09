@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poro Mentor - Resume Builder</title>
+  <link rel="icon" type="image/png" href="assets/img/poroai_nobg.png">
+  <link rel="shortcut icon" type="image/png" href="assets/img/poroai_nobg.png">
+  <link rel="apple-touch-icon" href="assets/img/poroai_nobg.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="resume.css" />
+</head>
+<body class="rb-body">
+  <div class="rb-app">
+    <header class="rb-header">
+      <a class="rb-brand" href="index.html">
+        <img src="assets/img/poroai_nobg.png" alt="Poro Mentor">
+        <div>
+          <strong>Poro Mentor</strong>
+          <span>Resume / CV Builder</span>
+        </div>
+      </a>
+
+      <nav class="rb-nav">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="mentor.html"><i class="fa-solid fa-comments"></i> Mentor</a>
+        <button id="rbPrintTopBtn" type="button">
+          <i class="fa-solid fa-download"></i> Export PDF
+        </button>
+        <button id="rbReviewTopBtn" type="button">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> AI Review
+        </button>
+      </nav>
+    </header>
+
+    <main class="rb-main">
+      <section class="rb-builder">
+        <div class="rb-title-card" data-aos="fade-right">
+          <span>Resume / CV Builder</span>
+          <h1>Choose a template first.</h1>
+          <p>Then add photo, personal info, education, skills, experience and generate a real resume/CV preview.</p>
+        </div>
+
+        <div class="rb-progress-card" data-aos="fade-right" data-aos-delay="60">
+          <div class="rb-progress-line">
+            <div id="rbProgressFill"></div>
+          </div>
+          <div class="rb-step-tabs">
+            <button class="rb-step-tab active" data-step="1" type="button">Template</button>
+            <button class="rb-step-tab" data-step="2" type="button">Personal</button>
+            <button class="rb-step-tab" data-step="3" type="button">Education</button>
+            <button class="rb-step-tab" data-step="4" type="button">Skills</button>
+            <button class="rb-step-tab" data-step="5" type="button">Work</button>
+            <button class="rb-step-tab" data-step="6" type="button">Generate</button>
+          </div>
+        </div>
+
+        <div class="rb-form-card" data-aos="fade-right" data-aos-delay="100">
+          <!-- STEP 1 -->
+          <section class="rb-step active" data-step="1">
+            <div class="rb-step-head">
+              <i class="fa-solid fa-palette"></i>
+              <div>
+                <h2>Choose Template</h2>
+                <p>Pick a real resume/CV layout. Preview updates instantly.</p>
+              </div>
+            </div>
+
+            <div class="rb-template-grid">
+              <button class="rb-template active" data-template="sidebar" type="button">
+                <span class="rb-mini-template rb-mini-sidebar"></span>
+                <strong>Modern Sidebar</strong>
+                <small>Photo + left sidebar CV style.</small>
+              </button>
+
+              <button class="rb-template" data-template="dark" type="button">
+                <span class="rb-mini-template rb-mini-dark"></span>
+                <strong>Dark Professional</strong>
+                <small>Strong profile/sidebar design.</small>
+              </button>
+
+              <button class="rb-template" data-template="minimal" type="button">
+                <span class="rb-mini-template rb-mini-minimal"></span>
+                <strong>Clean Minimal</strong>
+                <small>ATS-friendly simple resume.</small>
+              </button>
+
+              <button class="rb-template" data-template="split" type="button">
+                <span class="rb-mini-template rb-mini-split"></span>
+                <strong>Executive Split</strong>
+                <small>Two-column professional CV.</small>
+              </button>
+            </div>
+          </section>
+
+          <!-- STEP 2 -->
+          <section class="rb-step" data-step="2">
+            <div class="rb-step-head">
+              <i class="fa-solid fa-user"></i>
+              <div>
+                <h2>Personal Info + Photo</h2>
+                <p>Upload image from device or drag and drop.</p>
+              </div>
+            </div>
+
+            <div class="rb-photo-row">
+              <div id="rbDropZone" class="rb-drop-zone">
+                <input id="rbPhotoInput" type="file" accept="image/*" hidden>
+                <div id="rbPhotoPreview" class="rb-photo-preview">
+                  <i class="fa-solid fa-camera"></i>
+                </div>
+                <strong>Upload Profile Image</strong>
+                <span>Click or drag & drop image here</span>
+                <button id="rbChoosePhotoBtn" type="button">Choose image</button>
+              </div>
+
+              <div class="rb-ai-tip">
+                <strong>Poro Suggestion</strong>
+                <p>If your selected template has photo section, placeholder will show until you upload an image. For ATS resume, Clean Minimal avoids photo.</p>
+              </div>
+            </div>
+
+            <div class="rb-grid">
+              <label>
+                Full Name
+                <input id="rbName" type="text" placeholder="Example: Shahriar Ahmed Riaz">
+              </label>
+
+              <label>
+                Target Role
+                <input id="rbRole" type="text" placeholder="Example: Software Engineer">
+              </label>
+
+              <label>
+                Email / Phone
+                <input id="rbContact" type="text" placeholder="email@example.com | +880...">
+              </label>
+
+              <label>
+                Address / Links
+                <input id="rbLinks" type="text" placeholder="Dhaka | GitHub | LinkedIn">
+              </label>
+
+              <label class="wide">
+                Profile Summary
+                <textarea id="rbSummary" rows="3" placeholder="Write a short professional summary..."></textarea>
+              </label>
+            </div>
+          </section>
+
+          <!-- STEP 3 -->
+          <section class="rb-step" data-step="3">
+            <div class="rb-step-head">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <div>
+                <h2>Education</h2>
+                <p>Add degree, institution, year, courses, and certifications.</p>
+              </div>
+            </div>
+
+            <div class="rb-grid">
+              <label class="wide">
+                Education
+                <textarea id="rbEducation" rows="6" placeholder="BSc in CSE, United International University, Expected 2027&#10;HSC, Science, 2022"></textarea>
+              </label>
+
+              <label class="wide">
+                Certifications / Coursework
+                <textarea id="rbCourses" rows="4" placeholder="Data Structures, DBMS, OOP, Web Development, OpenAI API"></textarea>
+              </label>
+            </div>
+          </section>
+
+          <!-- STEP 4 -->
+          <section class="rb-step" data-step="4">
+            <div class="rb-step-head">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              <div>
+                <h2>Skills</h2>
+                <p>Add technical skills, soft skills, and languages.</p>
+              </div>
+            </div>
+
+            <div class="rb-grid">
+              <label class="wide">
+                Technical Skills
+                <textarea id="rbSkills" rows="6" placeholder="JavaScript, Python, HTML, CSS, React, Node.js, Express.js, SQL, Git, OpenAI API"></textarea>
+              </label>
+
+              <label class="wide">
+                Languages / Soft Skills
+                <textarea id="rbSoftSkills" rows="4" placeholder="Bangla, English, Communication, Teamwork, Leadership, Time Management"></textarea>
+              </label>
+            </div>
+          </section>
+
+          <!-- STEP 5 -->
+          <section class="rb-step" data-step="5">
+            <div class="rb-step-head">
+              <i class="fa-solid fa-briefcase"></i>
+              <div>
+                <h2>Experience + Projects</h2>
+                <p>Add work history, projects, clubs, contests, and activities.</p>
+              </div>
+            </div>
+
+            <div class="rb-grid">
+              <label class="wide">
+                Work Experience / Activities
+                <textarea id="rbExperience" rows="6" placeholder="Hackathon Participant - Built student-focused AI project, implemented UI/UX and backend workflow."></textarea>
+              </label>
+
+              <label class="wide">
+                Projects
+                <textarea id="rbProjects" rows="5" placeholder="Poro Mentor - AI study agent using Node.js, Express and OpenAI API."></textarea>
+              </label>
+            </div>
+          </section>
+
+          <!-- STEP 6 -->
+          <section class="rb-step" data-step="6">
+            <div class="rb-step-head">
+              <i class="fa-solid fa-file-circle-check"></i>
+              <div>
+                <h2>Generate + Review</h2>
+                <p>Generate your resume and send it to Poro Mentor for review.</p>
+              </div>
+            </div>
+
+            <div class="rb-final-actions">
+              <button id="rbGenerateBtn" type="button">
+                <i class="fa-solid fa-file-lines"></i>
+                Generate Resume
+              </button>
+              <button id="rbPrintBtn" type="button">
+                <i class="fa-solid fa-download"></i>
+                Export PDF
+              </button>
+              <button id="rbReviewBtn" type="button">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Review with AI
+              </button>
+              <button id="rbClearBtn" type="button">
+                <i class="fa-solid fa-eraser"></i>
+                Clear All
+              </button>
+            </div>
+          </section>
+
+          <div class="rb-controls">
+            <button id="rbBackBtn" type="button">
+              <i class="fa-solid fa-arrow-left"></i>
+              Back
+            </button>
+            <button id="rbNextBtn" type="button">
+              Next
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="rb-preview-side" data-aos="fade-left">
+        <div class="rb-suggestion-card">
+          <div>
+            <img src="assets/img/poroai_nobg.png" alt="Poro Mentor">
+            <div>
+              <strong>Poro Suggestions</strong>
+              <span id="rbSuggestionTitle">Template Tips</span>
+            </div>
+          </div>
+          <p id="rbSuggestionText">Choose a template first. Photo placeholders will appear in photo-based templates.</p>
+          <button id="rbApplySuggestionBtn" type="button">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Apply Suggestion
+          </button>
+        </div>
+
+        <div class="rb-live-card">
+          <div class="rb-live-head">
+            <div>
+              <h3>Live Preview</h3>
+              <span id="rbTemplateName">Modern Sidebar Template</span>
+            </div>
+            <button id="rbRefreshBtn" type="button">
+              <i class="fa-solid fa-rotate"></i>
+              Refresh
+            </button>
+          </div>
+          <div id="rbPreview" class="rb-preview-canvas"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div id="rbFloatingActions" class="rb-floating-actions">
+    <button id="rbFloatGenerate" type="button">
+      <i class="fa-solid fa-file-lines"></i>
+      Generate
+    </button>
+    <button id="rbFloatPrint" type="button">
+      <i class="fa-solid fa-download"></i>
+      Export PDF
+    </button>
+    <button id="rbFloatReview" type="button">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      AI Review
+    </button>
+  </div>
+
+  <div id="resumeDeveloperCredit" class="resume-developer-credit">
+    Developed by
+    <a href="https://shahriarahmedriaz.netlify.app/" target="_blank" rel="noopener noreferrer">
+      Shahriar Ahmed Riaz
+    </a>
+    <span>• Powered by OpenAI</span>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="common.js"></script>
+  <script src="resume.js"></script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poro Mentor - AI Assistant</title>
+  <link rel="icon" type="image/png" href="assets/img/poroai_nobg.png">
+  <link rel="shortcut icon" type="image/png" href="assets/img/poroai_nobg.png">
+  <link rel="apple-touch-icon" href="assets/img/poroai_nobg.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="mentor.css" />
+</head>
+<body class="mentor-body">
+  <input id="pdfFileInput" type="file" accept="application/pdf,image/*" multiple hidden>
+  <div id="mentorApp" class="mentor-app">
+    <aside id="mentorSidebar" class="mentor-sidebar expanded">
+      <div class="sidebar-top">
+        <a class="side-brand" href="index.html">
+          <span class="side-brand-icon logo-box">
+  <img src="assets/img/poroai_nobg.png" alt="Poro Mentor logo">
+</span>
+          <span class="side-brand-text">
+            <strong>Poro Mentor</strong>
+            <small>AI Study Agent</small>
+          </span>
+        </a>
+
+        <button id="sidebarToggle" class="sidebar-toggle" type="button" title="Hide sidebar">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+      </div>
+
+      <button id="newChatBtn" class="new-chat-btn" type="button">
+        <i class="fa-solid fa-plus"></i>
+        <span>New Chat</span>
+      </button>
+
+      <div class="side-section-label">
+        <span>Agent Modes</span>
+      </div>
+
+      <nav class="mode-nav">
+        <button class="mode-item active" data-mode="general" type="button">
+            <i class="fa-solid fa-comments"></i>
+            <span>Default Chat</span>
+          </button>
+          <button class="mode-item" data-mode="study" type="button">
+          <i class="fa-solid fa-house"></i>
+          <span>Study Helper</span>
+        </button>
+        <button class="mode-item" data-mode="youtube" type="button">
+          <i class="fa-brands fa-youtube"></i>
+          <span>YouTube Learning</span>
+        </button>
+        <button class="mode-item" data-mode="pdf" type="button">
+          <i class="fa-solid fa-file-pdf"></i>
+          <span>PDF / Notes</span>
+        </button>
+        <button class="mode-item" data-mode="book" type="button">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>Book Finder</span>
+        </button>
+        <button class="mode-item" data-mode="career" type="button">
+          <i class="fa-solid fa-briefcase"></i>
+          <span>Career Guide</span>
+        </button>
+        <button class="mode-item" data-mode="coding" type="button">
+          <i class="fa-solid fa-code"></i>
+          <span>Coding Helper</span>
+        </button>
+        <button class="mode-item" data-mode="productivity" type="button">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>Productivity</span>
+        </button>
+        <button class="mode-item" data-mode="campus" type="button">
+          <i class="fa-solid fa-building-columns"></i>
+          <span>Campus Assistant</span>
+        </button>
+      </nav>
+
+      <div class="history-wrap">
+        <div class="side-section-label history-label">
+          <span>Chat History</span>
+          <button id="clearHistoryBtn" type="button" title="Clear history">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <p class="empty-history">No chats yet</p>
+        </div>
+          <div id="modelMenu" class="dropdown-menu model-menu">
+            <button data-model="fast" type="button">
+              <strong>GPT-4.1 mini</strong>
+              <small>Fast model for quick study help</small>
+            </button>
+            <button data-model="smart" type="button">
+              <strong>GPT-4.1</strong>
+              <small>Smarter reasoning for detailed answers</small>
+            </button>
+            <button data-model="creative" type="button">
+              <strong>GPT-4o mini</strong>
+              <small>Creative help for writing and planning</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <a class="top-link" href="resume.html">
+            <i class="fa-solid fa-file-lines"></i>
+            Resume
+          </a>
+          <a class="top-primary" href="index.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Home
+          </a>
+        </div>
+      </header>
+
+      <section class="assistant-stage">
+        <div id="startScreen" class="start-screen">
+          <div class="orb-wrap" data-aos="zoom-in">
+            <div class="mentor-orb logo-orb">
+  <img src="assets/img/poroai_nobg.png" alt="Poro Mentor logo">
+</div>
+          </div>
+
+          <div class="greeting" data-aos="fade-up">
+            <p id="timeGreeting">Good Afternoon, Student</p>
+            <h1>What's on <span>your mind?</span></h1>
+          </div>
+        </div>
+
+        <section class="prompt-console" data-aos="fade-up" data-aos-delay="100">
+          <div class="prompt-shell">
+            <div id="selectedFilesPreview" class="selected-files-preview"></div>
+            <textarea id="userInput" rows="3" placeholder="Ask a question or make a request..."></textarea>
+
+            <div class="console-bottom">
+              <div class="console-tools">
+                <button id="attachBtn" type="button">
+                  <i class="fa-solid fa-paperclip"></i>
+                  Attach
+                </button>
+
+                <button id="selectedModeChip" class="selected-mode-chip" type="button">
+                  <i id="selectedModeIcon" class="fa-solid fa-book-open"></i>
+                  <span id="selectedModeText">Study Helper</span>
+                  <i class="fa-solid fa-chevron-down chip-chevron"></i>
+                </button>
+
+                <div id="modeMenu" class="dropdown-menu mode-menu">
+                  <button data-mode="study" type="button">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Study Helper</span>
+                  </button>
+                  <button data-mode="youtube" type="button">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>YouTube Learning</span>
+                  </button>
+                  <button data-mode="pdf" type="button">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span>PDF / Notes</span>
+                  </button>
+                  <button data-mode="book" type="button">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <span>Book Finder</span>
+                  </button>
+                  <button data-mode="career" type="button">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Career Guide</span>
+                  </button>
+                  <button data-mode="coding" type="button">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Coding Helper</span>
+                  </button>
+                  <button data-mode="productivity" type="button">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Productivity</span>
+                  </button>
+                  <button data-mode="campus" type="button">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Campus Assistant</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="console-actions">
+                <button id="voiceBtn" class="round-action" type="button" title="Voice input">
+                  <i class="fa-solid fa-microphone"></i>
+                </button>
+                <button id="speakBtn" class="round-action" type="button" title="Read answer">
+                  <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <button id="askBtn" class="send-action" type="button" title="Ask Poro Mentor">
+                  <i class="fa-solid fa-arrow-up"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="starterSection" class="starter-section" data-aos="fade-up" data-aos-delay="150">
+          <div class="starter-title">
+            <span></span>
+            Get started with an example below
+          </div>
+
+          <div class="starter-grid">
+            <button class="starter-card" data-mode="study" data-prompt="Help me understand Newton's second law with examples and practice questions." type="button">
+              <i class="fa-solid fa-book-open"></i>
+              <span>Help me understand a topic</span>
+            </button>
+
+            <button class="starter-card" data-mode="pdf" data-prompt="Summarize these notes and make key points, flashcards, and exam questions." type="button">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>Summarize an article or PDF notes</span>
+            </button>
+
+            <button class="starter-card" data-mode="youtube" data-prompt="Find the best YouTube search plan for learning DBMS normalization." type="button">
+              <i class="fa-brands fa-youtube"></i>
+              <span>Find the best video resources</span>
+            </button>
+
+            <button class="starter-card" data-mode="career" data-prompt="Create a career roadmap for becoming a backend developer as a CSE student." type="button">
+              <i class="fa-solid fa-route"></i>
+              <span>Create a career roadmap</span>
+            </button>
+          </div>
+        </section>
+
+        <section id="answerPanel" class="answer-panel">
+          <div class="answer-head">
+            <div>
+              <span class="online-dot"></span>
+              <strong id="currentModeLabel">Study Helper</strong>
+              <p id="currentModeHint">Ask any topic you do not understand.</p>
+            </div>
+
+            <button id="clearBtn" type="button">
+              <i class="fa-solid fa-eraser"></i>
+              Clear Chat
+            </button>
+          </div>
+
+          <div id="chatMessages" class="mentor-chat">
+            <div class="empty-answer">
+              <span class="empty-logo">
+  <img src="assets/img/poroai_nobg.png" alt="Poro Mentor">
+</span>
+Your mentor response will appear here.
+            </div>
+          </div>
+
+          <div id="actionBar" class="mentor-actions"></div>
+        </section>
+      </section>
+    <div id="mentorDeveloperCredit" class="mentor-developer-credit">
+        Developed by
+        <a href="https://shahriarahmedriaz.netlify.app/" target="_blank" rel="noopener noreferrer">
+          Shahriar Ahmed Riaz
+        </a>
+        <span>• Powered by OpenAI</span>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="common.js"></script>
+  <script src="mentor.js"></script>
+  <script src="mentor-image.patch.js"></script>
+  <script src="mentor-credit-align.js"></script>
+</body>
+</html>
